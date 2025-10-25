@@ -1,12 +1,12 @@
 import discord
 from discord.ext import commands
 import openai
-import io
-import requests
+import os
 
-# Discord & OpenAI setup
-TOKEN = MTQzMTYyMTY2ODU2ODMwMTY4MA.Gmx-h2.EQvi2sWroE2SkyNA_j3xnY0D2tkcmmOTugUUuk
-OPENAI_API_KEY = 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
+# Load tokens from environment variables
+TOKEN = os.getenv("DISCORD_TOKEN")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
 openai.api_key = OPENAI_API_KEY
 
 intents = discord.Intents.default()
@@ -46,4 +46,3 @@ async def on_ready():
     print(f"{bot.user} has connected to Discord!")
 
 bot.run(TOKEN)
-
